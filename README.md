@@ -77,15 +77,22 @@ service requires.
 
 # Extending the validator
 
+## Common validator source
+
+The Eduhub Validator is a specialzed build of the [Apie 🙈 OpenAPI
+Service Validator 🙈](https://github.com/SURFnet/apie). This
+repository contains the Eduhub configuration and build tooling to
+create a standalone validator for Eduhub.
+
 ## Prerequisites for running/building from source
 
-The source code in this repository requires a Clojure runtime. You can
-install either
+Building requires a Clojure runtime. You can install either
 [Babashka](https://github.com/babashka/babashka#installation) for a
 standalone environment with quick startup time and slightly slower
 runtime, or the full [Clojure
 installation](https://clojure.org/guides/install_clojure) which
-requires Java and is slower to start.
+requires Java and is slower to start. For generating a standalone
+validator you need Babashka.
 
 The `validator` script in the root of the repository will use Babashka
 if `bb` is on the PATH, and `clojure` otherwise.

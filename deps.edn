@@ -1,12 +1,6 @@
-{:paths   ["src" "assets" "profiles"]
- :deps    {org.clojure/tools.cli          {:mvn/version "1.0.219"}
-           ring/ring-codec                {:mvn/version "1.2.0"}
-           org.babashka/http-client       {:mvn/version "0.4.15"}
-           org.clojure/data.json          {:mvn/version "2.4.0"}
-           hiccup/hiccup                  {:mvn/version "2.0.0-RC2"}
-           nl.jomco/clj-http-status-codes {:mvn/version "0.1"}
-           nl.jomco/openapi-v3-validator  {:mvn/version "0.2.1"}
-           nl.jomco/spider                {:mvn/version "0.2.0"}}
+{:paths   ["profiles"]
+ :deps    {nl.surf/apie {:git/url "https://github.com/SURFnet/apie.git"
+                         :git/sha "542dde9e16956fd8043763fc32e487536b30fdf4"}}
  :aliases {:test      {:extra-deps {lambdaisland/kaocha {:mvn/version "RELEASE"}}
                        :main-opts  ["-m" "kaocha.runner"]}
            :clj-kondo {:replace-deps {clj-kondo/clj-kondo {:mvn/version "RELEASE"}}
