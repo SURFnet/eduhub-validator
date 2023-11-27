@@ -1,4 +1,4 @@
-# Eduhub API validator
+# SURFeduhub API validator
 
 A command-line tool to spider and validate [Open Education
 API](https://openonderwijsapi.nl/) endpoints to ensure compatibility
@@ -51,7 +51,7 @@ and can be read as text, but it will probably be very large.
 
 ## Spidering via gateway
 
-To run the spider through the Eduhub gateway, you can use the
+To run the spider through the SURFeduhub gateway, you can use the
 `--basic-auth` and `--headers` options:
 
 ```sh
@@ -64,9 +64,9 @@ eduhub-validator \
   --add-header 'x-envelope-response: false'
 ```
 
-## Available Eduhub profiles
+## Available SURFeduhub profiles
 
-A few Eduhub profiles are available in the [profiles](./profiles)
+A few SURFeduhub profiles are available in the [profiles](./profiles)
 directory and are built into the binary releases:
 
   - `ooapi` -- the full OOAPI v5 specification
@@ -79,10 +79,10 @@ service requires.
 
 ## Common validator source
 
-The Eduhub Validator is a specialzed build of the [Apie 🙈 OpenAPI
-Service Validator 🙈](https://github.com/SURFnet/apie). This
-repository contains the Eduhub configuration and build tooling to
-create a standalone validator for Eduhub.
+The SURFeduhub Validator is a specialzed build of the [Apie 🙈 OpenAPI
+Service Validator](https://github.com/SURFnet/apie). This repository
+contains the SURFeduhub configuration and build tooling to create a
+standalone validator for SURFeduhub.
 
 ## Prerequisites for running/building from source
 
