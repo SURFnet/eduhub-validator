@@ -27,7 +27,7 @@ BABASHKA_VERSION:=1.3.186-SNAPSHOT
 
 exec_base_name=eduhub-validator
 release_name=$(exec_base_name)-$(version)
-source_files=$(shell find profiles -type f)
+source_files=$(shell find profiles src -type f)
 current_arch=$(shell bb current_arch.clj)
 
 # uberjar is the babashka uberjar (not a java-compatible jar)
@@ -36,7 +36,7 @@ uberjar=$(exec_base_name)-$(version)-standalone.jar
 uberjar: $(uberjar)
 
 $(uberjar): deps.edn bb.edn $(source_files)
-	$(BB) uberjar $@ -m nl.jomco.apie.main
+	$(BB) uberjar $@ -m nl.surf.eduhub-validator.main
 
 release: $(binary_release)
 
