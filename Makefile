@@ -27,7 +27,8 @@ BABASHKA_VERSION:=1.3.186-SNAPSHOT
 
 exec_base_name=eduhub-validator
 release_name=$(exec_base_name)-$(version)
-source_files=$(shell find src assets profiles -type f)
+source_files=$(shell find profiles src -type f)
+current_arch=$(shell bb current_arch.clj)
 
 # uberjar is the babashka uberjar (not a java-compatible jar)
 uberjar=$(exec_base_name)-$(version)-standalone.jar
@@ -35,11 +36,12 @@ uberjar=$(exec_base_name)-$(version)-standalone.jar
 uberjar: $(uberjar)
 
 $(uberjar): deps.edn bb.edn $(source_files)
-	$(BB) uberjar $@ -m nl.jomco.eduhub-validator.main
+	$(BB) uberjar $@ -m nl.surf.eduhub-validator.main
 
 release: $(binary_release)
 
 # for unixy systems
+
 $(release_name)-%/$(exec_base_name): babashka-$(BABASHKA_VERSION)-%.tar.gz $(uberjar)
 	mkdir -p $(dir $@)
 	tar -zxO <$< >$@
@@ -64,3 +66,12 @@ $(release_name)-%.tar.gz: $(release_name)-%/$(exec_base_name)
 # for windows
 $(release_name)-%.zip: $(release_name)-%/$(exec_base_name).exe
 	zip -r $@ $(basename $@)
+
+# build for local use, on windows
+$(exec_base_name).exe: $(release_name)-$(current_arch)/$(exec_base_name).exe
+	cp $< $@
+
+# build for local use, non-windows
+$(exec_base_name): $(release_name)-$(current_arch)/$(exec_base_name)
+	echo $(current_arch)
+	cp $< $@
