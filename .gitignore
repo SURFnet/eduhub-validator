@@ -9,3 +9,4 @@ eduhub-validator*
 /share/
 /target/
 *.jar
+/.clj-kondo/
