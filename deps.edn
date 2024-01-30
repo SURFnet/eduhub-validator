@@ -1,6 +1,6 @@
 {:paths   ["profiles" "src"]
  :deps    {nl.surf/apie {:git/url "https://github.com/SURFnet/apie.git"
-                         :git/sha "ef23a67f795fd29f8a283157bf09ee2986eec4c9"}}
+                         :git/sha "7b2867dc149c8ecac6fd26c809f3eb35262870d4"}}
  :aliases {:test      {:extra-deps {lambdaisland/kaocha {:mvn/version "RELEASE"}}
                        :main-opts  ["-m" "kaocha.runner"]}
            :clj-kondo {:replace-deps {clj-kondo/clj-kondo {:mvn/version "RELEASE"}}
