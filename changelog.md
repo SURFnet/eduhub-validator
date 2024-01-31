@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.0
+
+ - Extra apie validator to its own repository
+ - Update bb version
+ - Bump apie to latest version
+ - Implement --version option
+
 ## v0.0.4
 
  - Add changelog
