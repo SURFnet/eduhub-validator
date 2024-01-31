@@ -35,8 +35,12 @@ uberjar=$(exec_base_name)-$(version)-standalone.jar
 
 uberjar: $(uberjar)
 
-$(uberjar): deps.edn bb.edn $(source_files)
+$(uberjar): deps.edn bb.edn $(source_files) bake-version
+	rm -f $@
 	$(BB) uberjar $@ -m nl.surf.eduhub-validator.main
+
+bake-version:
+	if [ "$(version)" != "$(baked_version)" ]; then	echo "$(version)" >src/nl/surf/eduhub_validator/version.txt; fi
 
 release: $(binary_release)
 

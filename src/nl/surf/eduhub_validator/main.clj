@@ -1,7 +1,8 @@
 (ns nl.surf.eduhub-validator.main
-  (:require [nl.jomco.apie.main :as apie]
+  (:require [clojure.java.io :as io]
+            [clojure.string :as string]
             [clojure.tools.cli :refer [parse-opts]]
-            [clojure.java.io :as io]))
+            [nl.jomco.apie.main :as apie]))
 
 (def included-profiles
   (-> "included-profiles.txt"
@@ -20,9 +21,19 @@
        option))
    apie/cli-options))
 
+(defn version
+  "Return app version"
+  []
+  (when-let [r (io/resource "nl/surf/eduhub_validator/version.txt")]
+    (string/trim (slurp r))))
+
+
 (defn -main
   [& args]
   (let [{:keys [errors summary options]} (parse-opts args cli-options)]
+    (when (:print-version? options)
+      (println (version))
+      (System/exit 0))
     (when (seq errors)
       (run! println errors)
       (println summary)
