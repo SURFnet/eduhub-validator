@@ -10,3 +10,4 @@ eduhub-validator*
 /target/
 *.jar
 /.clj-kondo/
+/src/nl/surf/eduhub_validator/version.txt
