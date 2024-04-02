@@ -71,9 +71,7 @@ directory and are built into the binary releases:
 
   - `ooapi` -- the full OOAPI v5 specification
   - `rio` -- the RIO profile of OOAPI v5.
-  
-The RIO profile defines the subset of the OOAPI that RIO Mapper
-service requires.
+  - `eduxchange` -- the eduxchange profile of OOAPI v5.
 
 # Extending the validator
 
