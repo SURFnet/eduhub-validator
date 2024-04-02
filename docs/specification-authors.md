@@ -14,7 +14,8 @@ The Open Education Specification has profiles for different consumers
 Currently, we have a two profiles:
 
 - `ooapi` - the profile for a complete OOAPI implementation
-- `rio` - the minimum implementation needed for serving the RIO Consumer. 
+- `rio` - the minimum implementation needed for serving the RIO Consumer.
+- `eduxchange` - the eduxchange profile of OOAPI v5.
 
 We describe a profile as a set of rules for indexing specific paths,
 plus a profile-specific OpenAPI specification (this is a subset of the
