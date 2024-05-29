@@ -19,7 +19,10 @@ jobs:
 
     - name: Install clj runtime
       run: .github/workflows/install-binaries.sh
-          
+
+    - name: Dev check
+      run: make release_check
+
     - name: Check dependency freshness
       run: bin/clojure -M:outdated
 
