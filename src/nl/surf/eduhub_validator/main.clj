@@ -48,9 +48,35 @@
                                 (str " - " p " " (spec-version p)))
                               included-profiles))))
 
+(defn usage
+  [summary]
+  (->> ["Eduhub Validator"
+        ""
+        "A command-line tool to spider and validate Open Education API"
+        "endpoints to ensure compatibility with services in SURFeduhub."
+        ""
+        "Usage: eduhub-validator OPTIONS SEEDS*"
+        ""
+        "OPTIONS:"
+        summary
+        ""
+        "SEEDS are full URLs matching BASE-URL, or paths relative to BASE-URL."
+        ""
+        "If SEEDS are not provided, uses seeds in profile."
+        ""
+        "To validate all reachable paths from a service, use"
+        "eduhub-validator --profile=rio --base-url=http://example.com"
+        ""
+        "To validate one specific path, use"
+        "eduhub-validator --profile=rio --base-url=http://example.com -M1 '/courses/some-course-id'"]
+       (string/join "\n")))
+
 (defn -main
   [& args]
-  (let [{:keys [errors summary options]} (parse-opts args cli-options)]
+  (let [{:keys [errors summary options arguments]} (parse-opts args cli-options)]
+    (when (:help options)
+      (println (usage summary))
+      (System/exit 0))
     (when (:print-version? options)
       (println (versions))
       (System/exit 0))
@@ -61,4 +87,7 @@
         (println "\nBuiltin profiles:")
         (run! #(println " - " %) included-profiles))
       (System/exit 1))
-    (apie/main options)))
+    (let [options  (if (seq arguments)
+                    (assoc options :seeds (map #(apie/parse-seed (:base-url options) %) arguments))
+                    options)]
+      (apie/main options))))
