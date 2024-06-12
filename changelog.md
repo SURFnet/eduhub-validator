@@ -1,5 +1,13 @@
 # Changelog
 
+## NEXTVERSION
+
+ - Add SEED argument
+ - Add --help option
+ - Update dependencies
+ - Add `assoc` and `dissoc` map functions
+ - Fix JSON parsing of top-level arrays
+
 ## v0.1.0
 
  - Extra apie validator to its own repository
