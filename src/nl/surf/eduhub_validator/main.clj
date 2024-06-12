@@ -55,14 +55,14 @@
         "A command-line tool to spider and validate Open Education API"
         "endpoints to ensure compatibility with services in SURFeduhub."
         ""
-        "Usage: eduhub-validator OPTIONS SEEDS*"
+        "Usage: eduhub-validator [OPTIONS] [SEED...]"
         ""
         "OPTIONS:"
         summary
         ""
-        "SEEDS are full URLs matching BASE-URL, or paths relative to BASE-URL."
+        "SEEDs are full URLs matching BASE-URL, or paths relative to BASE-URL."
         ""
-        "If SEEDS are not provided, uses seeds in profile."
+        "If SEEDs are not provided, uses seeds in profile."
         ""
         "To validate all reachable paths from a service, use"
         "eduhub-validator --profile=rio --base-url=http://example.com"
@@ -87,7 +87,10 @@
         (println "\nBuiltin profiles:")
         (run! #(println " - " %) included-profiles))
       (System/exit 1))
+    (when-let [invalid-seeds (seq (remove #(apie/valid-seed? (:base-url options) %) arguments))]
+      (apply println "Invalid SEEDs:" invalid-seeds)
+      (System/exit 1))
     (let [options  (if (seq arguments)
-                    (assoc options :seeds (map #(apie/parse-seed (:base-url options) %) arguments))
-                    options)]
+                     (assoc options :seeds (map #(apie/parse-seed (:base-url options) %) arguments))
+                     options)]
       (apie/main options))))
