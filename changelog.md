@@ -2,6 +2,8 @@
 
 ## NEXTVERSION
 
+## v0.2.0
+
  - Add SEED argument
  - Add --help option
  - Update dependencies
