@@ -9,11 +9,15 @@ BABASHKA_VERSION="1.3.188"
 BABASHKA_ARCH="linux-amd64"
 
 if [ ! -x "bin/clojure" ]; then
-    curl -O "https://download.clojure.org/install/linux-install-${CLOJURE_VERSION}.sh"
-    bash "linux-install-${CLOJURE_VERSION}.sh" -p "$(pwd)"
+    F="linux-install-${CLOJURE_VERSION}.sh"
+    curl -O "https://download.clojure.org/install/${F}"
+    bash "${F}" -p "$(pwd)"
+    rm -f "${F}"
 fi
 
 if [ ! -x "bin/bb" ]; then
-    curl -LO "https://github.com/babashka/babashka/releases/download/v${BABASHKA_VERSION}/babashka-${BABASHKA_VERSION}-${BABASHKA_ARCH}.tar.gz"
-    tar -zxf "babashka-${BABASHKA_VERSION}-${BABASHKA_ARCH}.tar.gz" -C bin
+    F="babashka-${BABASHKA_VERSION}-${BABASHKA_ARCH}.tar.gz"
+    curl -LO "https://github.com/babashka/babashka/releases/download/v${BABASHKA_VERSION}/${F}"
+    tar -zxf "${F}" -C bin
+    rm -f "${F}"
 fi
