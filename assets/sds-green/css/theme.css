@@ -1,0 +1,180 @@
+/* based on sds--color-palette--green */
+:root {
+    --border-color: var(--sds--color--gray--300);
+    --dimmed-color: var(--sds--color--blue--400); /* --sds--palette--support-color--400 */
+    --desktop-color: var(--sds--color--white--dimmed--70);
+    --bg-color: var(--sds--color--white);
+    --issue-count-color: var(--sds--color--black); /* ALT var(--sds--color--red--400) */
+    --issue-count-bg-color: var(--sds--color--red--200);
+    --issue-count-border-color: transparent;
+    --issue-leading-size: 2.5rem;
+    --code-bg-color: #eee;
+    --heading-bg-color: var(--sds--color--green--400); /* --sds--palette--main-color--400 */
+    --heading-color: var(--sds--color--white);
+    --info-bg-color: var(--sds--color--blue--200);
+    --info-icon-size: 1.5rem;
+    --collapse-icon-size: 1.5rem;
+    --collapse-icon-bg-color: var(--sds--color--green--400);
+}
+
+
+/* apie.css overrides */
+
+section section {
+    padding: 1rem;
+    margin: 0 0 1rem 0;
+    border: solid 1px var(--border-color);
+    border-radius: 1rem;
+    background: var(--bg-color);
+    overflow: hidden;
+    margin: 4rem 0;
+}
+
+section.general dl,
+.per-path > p {
+    font-size: inherit;
+}
+
+/* sds overrides */
+
+details {
+    display: inline-block;
+    width: 100%;
+}
+
+ol, ul {
+    margin: 1rem 0;
+    padding: 0 0 0 1rem;
+}
+
+
+/* page header */
+header {
+    position: relative;
+    background: url("data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ibG9nby1zdXJmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MC45IiBoZWlnaHQ9IjM2IiB2aWV3Qm94PSIwIDAgNzAuOSAzNiIgZmlsbD0id2hpdGUiPjxwYXRoIGNsYXNzPSJzaGFwZSIgZD0iTTY1LjUgMjEuOGMzIDAgNS40IDIuNCA1LjQgNS40djMuNGMwIDMtMi40IDUuNC01LjQgNS40aC04LjFjLTMgMC01LjQtMi40LTUuNC01LjR2LTIuMWMwLTMuNy0zLTYuNy02LjctNi43SDYuN0MzIDIxLjggMCAxOC43IDAgMTVWNi43QzAgMyAzIDAgNi43IDBoMzguNUM0OSAwIDUyIDMgNTIgNi43VjE1YzAgMy43IDMgNi43IDYuNyA2LjdoNi44eiIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiPjwvcGF0aD48cGF0aCBjbGFzcz0idGV4dCIgZD0iTTQzLjQgMTIuNWMuNyAwIDEuMS0uNCAxLjEtMS4xIDAtLjctLjMtMS4xLTEuMS0xLjFoLTIuN3YtMkg0NWMuNyAwIDEuMS0uNCAxLjEtMS4xIDAtLjctLjQtMS4xLTEuMS0xLjFoLTUuNGMtLjcgMC0xLjEuNC0xLjEgMS4xdjcuNmMwIC43LjQgMS4xIDEuMSAxLjEuNyAwIDEuMS0uNCAxLjEtMS4xdi0yLjRoMi43ek0zMi4yIDguM2MuOSAwIDEuNS40IDEuNSAxLjNzLS43IDEuMy0xLjUgMS4zaC0xLjlWOC4zaDEuOXptMS4zIDdjLjIuNS41LjcuOS43LjYgMCAxLjMtLjQgMS4zLTEuMSAwLS4yIDAtLjQtLjEtLjZsLTEtMi4xYzEtLjUgMS41LTEuNCAxLjUtMi43IDAtMi0xLjUtMy40LTMuNi0zLjRoLTMuMmMtLjcgMC0xLjEuNC0xLjEgMS4xdjcuNmMwIC43LjQgMS4xIDEuMSAxLjEuNyAwIDEuMS0uNCAxLjEtMS4xdi0yaDIuMWwxIDIuNXptLTEwLjMtMy45YzAgMS41LS45IDIuNC0yLjIgMi40LTEuMyAwLTIuMi0uOS0yLjItMi40VjcuMmMwLS43LS40LTEuMS0xLjEtMS4xLS43IDAtMS4xLjQtMS4xIDEuMXY0LjNjMCAyLjggMS45IDQuNiA0LjQgNC42IDIuNiAwIDQuNS0xLjggNC41LTQuNlY3LjJjMC0uNy0uNC0xLjEtMS4xLTEuMS0uNyAwLTEuMS40LTEuMSAxLjF2NC4yek0xMC41IDE0Yy0uOSAwLTEuNS0uMi0xLjktLjQtLjQtLjEtLjctLjItMS0uMi0uNiAwLTEgLjQtMSAxIDAgMSAyLjEgMS42IDQgMS42IDIuMiAwIDMuOS0xLjIgMy45LTMgMC0xLjctMS4xLTIuNC0yLjQtMi44bC0xLjgtLjZDOS40IDkuNSA5IDkuMyA5IDguOHMuOC0uNyAxLjQtLjdjLjggMCAxLjMuMiAxLjguNC4zLjEuNi4yLjkuMi42IDAgLjktLjQuOS0xIDAtMS0xLjktMS42LTMuNi0xLjZDOC4zIDYgNi43IDcuMiA2LjcgOC45YzAgMS40IDEgMi4zIDIuMiAyLjZsMS42LjVjLjguMiAxLjUuNSAxLjUgMSAuMS42LS44IDEtMS41IDF6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iIzAwMCI+PC9wYXRoPjwvc3ZnPg==") no-repeat;
+    background-position: 20px 20px;
+    background-color: var(--heading-bg-color);
+    color: var(--heading-color);
+    margin: 0;
+    padding: 70px 0 0 0 ;
+    width: 100%;
+    max-width: none;
+}
+
+header:before {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    content: "Eduhub Validator";
+    font-weight: bold;
+    font-size: 1.5rem;
+    white-space: nowrap;
+}
+
+header h1 {
+    background: var(--sds--color--gray--100);
+    color: var(--sds--color--black);
+    padding: 2rem;
+    text-align: center;
+}
+
+
+
+/* info section */
+section section div > .summary:first-child,
+section section div > .summary > p:first-child  {
+    background: var(--info-bg-color);
+    margin: -1rem -1rem 1rem -1rem;
+    padding: 1rem;
+}
+
+section section div > .summary > p:first-child  {
+    padding-top: 0;
+}
+
+section section div > .summary:first-child:before {
+    display: inline-block;
+    content: "i";
+    text-align: center;
+    font-weight: bold;
+    font-family: serif;
+    font-style: italic;
+    width: var(--info-icon-size);
+    height: var(--info-icon-size);
+    color: var(--sds--color--white);
+    border: 1px solid var(--sds--color--white);
+    line-height: var(--info-icon-size);
+    border-radius: var(--info-icon-size);
+    background-color: var(--sds--color--blue--400);
+    margin-right: 1rem;
+}
+
+section section div > .summary > p:first-child:before {
+    display: inline-block;
+    content: "";
+    text-align: center;
+    font-weight: bold;
+    font-family: serif;
+    font-style: italic;
+    width: var(--info-icon-size);
+    height: var(--info-icon-size);
+    /* color: var(--sds--color--white);
+    border: 1px solid var(--sds--color--white); */
+    line-height: var(--info-icon-size);
+    border-radius: var(--info-icon-size);
+    /* background-color: var(--sds--color--blue--400); */
+    margin-right: 1rem;
+}
+
+section > section > h3 {
+    background: var(--heading-bg-color);
+    color: var(--heading-color);
+}
+
+
+/* collapse icon */
+details > ul {
+    list-style: square inside none;
+}
+
+
+/* lists */
+
+details > ul > li > ul {
+    list-style: none;
+    margin-left: 1rem;
+}
+
+details > ul > li > ul details > summary {
+    list-style: initial;
+}
+
+ol.by-schema-path > li {
+    border-top: solid 0px var(--border-color);
+}
+
+.and-more {
+    background: var(--sds--color--gray--100);
+    margin: -1rem;
+    padding: 1rem !important;
+    font-size: inherit;
+}
+
+details.schema-path > ul > li {
+    padding-top: var(--sds--space--5);
+    padding-bottom: var(--sds--space--5);
+    border-top: solid 1px var(--border-color);
+    border-bottom-width: 0;
+}
+
+details.schema-path > ul > li:first-child {
+    border-top-width: 0;
+}
+
+
+/* collapsable hover */
+summary:hover {
+    background-color: var(--sds--color--gray--100);
+}
+
