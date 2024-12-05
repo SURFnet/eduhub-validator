@@ -28,6 +28,7 @@ BABASHKA_VERSION:=1.3.188
 exec_base_name=eduhub-validator
 release_name=$(exec_base_name)-$(version)
 source_files=$(shell find profiles src -type f)
+source_files+=generated/resources/extra.css
 current_arch=$(shell bb current_arch.clj)
 
 # uberjar is the babashka uberjar (not a java-compatible jar)
@@ -92,3 +93,10 @@ README.md: usage.txt.generated README.src.md
 release_check: README.md
 	# check that working tree is clean
 	exit $$(git status --porcelain | wc -l)
+
+# Note the order of CSS files is important
+sds_green_css_files=$(shell find assets/sds-green -name \*.css | sort)
+
+generated/resources/extra.css: $(sds_green_css_files)
+	mkdir -p generated/resources
+	cat $(sds_green_css_files) > $@
