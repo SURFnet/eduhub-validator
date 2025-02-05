@@ -1,6 +1,11 @@
 # Changelog
 
-## NEXTVERSION
+## 0.2.1
+ - Update report styling
+ - Update Apie dependency to v0.2.2
+ - Report text and layout improvements
+ - Ability to load extra CSS files
+ - Add --spider-timeout-millis option
 
 ## v0.2.0
 
