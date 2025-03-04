@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.2
+ - Update Apie dependency to v0.2.3; detect json media type suffix
+
 ## 0.2.1
  - Update report styling
  - Update Apie dependency to v0.2.2
