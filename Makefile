@@ -90,8 +90,11 @@ README.md: usage.txt.generated README.src.md
 	echo "<!-- WARNING! THIS FILE IS GENERATED, EDIT README.src.md INSTEAD -->" >$@
 	sed "/<!-- INCLUDE USAGE HERE -->/r $<" README.src.md >>$@
 
-release_check: README.md
-	# check that working tree is clean
+# check that working tree is clean when generated files are up-to-date
+#
+# we check in the generated css file, so that it's available when the
+# validator is used as a library dependency.
+release_check: README.md generated/resources/extra.css
 	exit $$(git status --porcelain | wc -l)
 
 # Note the order of CSS files is important
