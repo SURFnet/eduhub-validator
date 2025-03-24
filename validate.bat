@@ -1,3 +1,7 @@
+rem SPDX-FileCopyrightText: 2024, 2025 SURF B.V.
+rem SPDX-License-Identifier: EPL-2.0
+rem SPDX-FileContributor: Joost Diepenmaat
+
 @echo off
 
 where /q bb

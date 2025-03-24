@@ -1,3 +1,10 @@
+<!--
+    SPDX-FileCopyrightText: 2024, 2025 SURF B.V.
+    SPDX-License-Identifier: EPL-2.0
+    SPDX-FileContributor: Jelmer de Ronde
+    SPDX-FileContributor: Joost Diepenmaat
+-->
+
 # For Eduhub specification authors
 
 This document is intended for authors of the Open Education

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024, 2025 SURF B.V.
+# SPDX-License-Identifier: EPL-2.0
+# SPDX-FileContributor: Joost Diepenmaat
+# SPDX-FileContributor: Remco van 't Veer
+
 # Recipes for building release artifacts
 #
 # Expects the artifact to be in the format

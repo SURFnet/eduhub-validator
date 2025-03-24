@@ -1,21 +1,25 @@
+;; SPDX-FileCopyrightText: 2024, 2025 SURF B.V.
+;; SPDX-License-Identifier: EPL-2.0 WITH Classpath-exception-2.0
+;; SPDX-FileContributor: Jelmer de Ronde
+
 {:openapi-spec "eduxchange.openapi.json"
  :seeds
  [{:method "get"
    :path   "/courses"
    :query-params {"consumer" "eduxchange"}
-                  "pageSize" "250"}
+   "pageSize" "250"}
   {:method "get"
    :path   "/organizations"
    :query-params {"consumer" "eduxchange"}
-                  "organizationType" "root"}
+   "organizationType" "root"}
   {:method "get"
    :path   "/programs"
    :query-params {"consumer" "eduxchange"}
-                  "programType" "minor"
-                  "pageSize" "250"}]
+   "programType" "minor"
+   "pageSize" "250"}]
 
  :rules
- [;; page through items list for any kind of entity
+ [ ;; page through items list for any kind of entity
   {:match     [[:request :method, "get"]
                [:request :path ?path]
                [:response :status 200]

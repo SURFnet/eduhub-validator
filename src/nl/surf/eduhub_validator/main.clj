@@ -1,3 +1,7 @@
+;; SPDX-FileCopyrightText: 2024, 2025 SURF B.V.
+;; SPDX-License-Identifier: EPL-2.0 WITH Classpath-exception-2.0
+;; SPDX-FileContributor: Joost Diepenmaat
+
 (ns nl.surf.eduhub-validator.main
   (:require [babashka.json :as json]
             [clojure.java.io :as io]
