@@ -132,6 +132,10 @@ section > section > h3 {
     color: var(--heading-color);
 }
 
+span code {
+    background: none;
+}
+
 
 /* collapse icon */
 details > ul {
