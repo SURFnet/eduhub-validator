@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3
+ - Ability to add extra items to report runtime section
+ - Fix CSS background issue
+
 ## 0.2.2
  - Update Apie dependency to v0.2.3; detect json media type suffix
  - Include generated CSS in repo for use by eduhub-validator-service
