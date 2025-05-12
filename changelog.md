@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.4
+ - Updated apie; apie now reports network errors that occurred during the spider run
+
+## 0.2.3
+ - Ability to add extra items to report runtime section
+ - Fix CSS background issue
+
 ## 0.2.3
  - Ability to add extra items to report runtime section
  - Fix CSS background issue
