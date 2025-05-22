@@ -25,7 +25,7 @@
    :generates [{:method       "get"
                 :path         ?path
                 ;; params must be passed as strings
-                :query-params (assoc ?query-params "pageNumber" (inc ?pageNumber))}]}
+                :query-params (assoc ?query-params "pageNumber" "{(inc ?pageNumber)}")}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
