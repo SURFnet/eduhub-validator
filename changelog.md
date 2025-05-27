@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.5
+ - Updated apie; fixing issue generating requests with string templates
+
 ## 0.2.4
  - Updated apie; apie now reports network errors that occurred during the spider run
 
