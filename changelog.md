@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.6
+- Use new string template function for eduxchange profile
+
 ## 0.2.5
  - Updated apie; fixing issue generating requests with string templates
 
