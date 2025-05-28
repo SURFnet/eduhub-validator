@@ -3,7 +3,7 @@
   "info": {
     "version": "5.0.0",
     "title": "Open Education API",
-    "description": "OpenAPI (fka Swagger) specification for the Open Education API.\n\n<figure>\n\t<a target=\"_blank\" href=\"OOAPIv5_model.png\">\n  <img src=\"OOAPIv5_model.png\" alt=\"OOAPI information model that feeds OOAPI specification\" width=\"70%\" class=\"img-responsive\">\n  </a>\n  <figcaption> OOAPI information model that feeds OOAPI specification (click to enlage)</figcaption>\n</figure>\n\nThe model provides an overview of how the objects on which the API is specified are related. The overarching concept educations is not found in the in the end points of the API. The smaller concepts of programOffering, courseOffering and conceptOffering are all found in the offering endpoint. The different types of association can all be found in the association endpoint.\n\nThe original file for this model can be found <a target=\"_blank\" href=\"OOAPIv5_model_v0.4.drawio\">here</a>\n\nThe program relations object is not found as a separate endpoint but relations between programs can be found within the program endpoint by expanding that endpoint.\n\nInformation about earlier meetings and presentations can be found <a target=\"_blank\" href=\"https://github.com/open-education-api/notulen\">here</a>\n\nInformation on the EDU-API model that was also used for this api is shown <a target=\"_blank\" href=\"eduapi.png\">here</a>\n",
+    "description": "OpenAPI (fka Swagger) specification for the Open Education API.\n\n<figure>\n\t<a target=\"_blank\" href=\"OOAPIv5_model.png\">\n  <img src=\"OOAPIv5_model.png\" alt=\"OOAPI information model that feeds OOAPI specification\" width=\"70%\" class=\"img-responsive\">\n  </a>\n  <figcaption> OOAPI information model that feeds OOAPI specification (click to enlage)</figcaption>\n</figure>\n\nThe model provides an overview of how the objects on which the API is specified are related. The overarching concept educations is not found in the in the end points of the API. The smaller concepts of programOffering, courseOffering and conceptOffering are all found in the offering endpoint. The different types of association can all be found in the association endpoint.\n\nThe original file for this model can be found <a target=\"_blank\" href=\"OOAPIv5_model_v0.5.drawio\">here</a>\n\nThe program relations object is not found as a separate endpoint but relations between programs can be found within the program endpoint by expanding that endpoint.\n\nInformation about earlier meetings and presentations can be found <a target=\"_blank\" href=\"https://github.com/open-education-api/notulen\">here</a>\n\nInformation on the EDU-API model that was also used for this api is shown <a target=\"_blank\" href=\"eduapi.png\">here</a>\n",
     "x-logo": {
       "url": "../logo.png"
     }
@@ -204,7 +204,7 @@
     "securitySchemes": {
       "bearerAuth": {
         "type": "http",
-        "scheme": "Bearer"
+        "scheme": "bearer"
       },
       "openId": {
         "type": "openIdConnect",
@@ -220,7 +220,7 @@
         ],
         "properties": {
           "consumerKey": {
-            "description": "The key of the consumer (destination) for which this information is intended. See the [consumer registry](https://open-education-api.github.io/specification/#/consumers) for more information.",
+            "description": "The key of the consumer (destination) for which this information is intended. See the [consumer registry](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information.",
             "type": "string"
           }
         },
@@ -261,7 +261,7 @@
             "example": "https://open-education-api.github.io/specification/v4/docs.html"
           },
           "consumers": {
-            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Consumer"
@@ -731,7 +731,7 @@
             ]
           },
           "consumers": {
-            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Consumer"
@@ -881,7 +881,7 @@
             "writeOnly": true
           },
           "consumers": {
-            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Consumer"
@@ -1029,6 +1029,11 @@
           }
         }
       },
+      "Identifier": {
+        "type": "string",
+        "description": "An identifier of another resource.",
+        "format": "uuid"
+      },
       "academicSessionType": {
         "type": "string",
         "description": "The type of this Academic Session This is an *extensible enumeration*.\n- academic year: academic year\n- semester: semester, typically there are two semesters per academic year\n- trimester: trimester, typically there are three semesters per academic year\n- quarter: quarter, typically there are four quarters per academic year\n- testing period: a period in which tests take place\n- period: any other period in an academic year\n\nImplementations are allowed to add additional values to those above, as long as they do not overlap in definition to existing values.\n",
@@ -1041,11 +1046,6 @@
           "testing period",
           "period"
         ]
-      },
-      "Identifier": {
-        "type": "string",
-        "description": "An identifier of another resource.",
-        "format": "uuid"
       },
       "AcademicSession": {
         "type": "object",
@@ -1151,7 +1151,7 @@
             }
           },
           "consumers": {
-            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Consumer"
@@ -1228,7 +1228,17 @@
             "example": "component"
           },
           "academicSession": {
-            "$ref": "#/components/schemas/AcademicSession"
+            "description": "The academicsession during which this courseoffering takes place. [`expandable`](#tag/academic_session_model)\nBy default only the `academicSessionId` (a string) is returned. If the client requested an expansion of `academicSession` the full academicsession object should be returned.\n",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Identifier",
+                "title": "academicSessionId"
+              },
+              {
+                "$ref": "#/components/schemas/AcademicSession",
+                "title": "AcademicSession object"
+              }
+            ]
           },
           "name": {
             "type": "array",
@@ -1326,7 +1336,7 @@
             }
           },
           "consumers": {
-            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Consumer"
@@ -1336,7 +1346,8 @@
                 "consumerKey": "rio",
                 "explanationRequiredPermission": "Toestemming is vereist omdat we daarom vragen.",
                 "requiredPermissionRegistration": "yes",
-                "registrationStatus": "open"
+                "registrationStatus": "open",
+                "modeOfDelivery": "coaching"
               }
             ]
           },
@@ -1727,7 +1738,7 @@
             }
           },
           "consumers": {
-            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Consumer"
@@ -1894,7 +1905,7 @@
             ]
           },
           "consumers": {
-            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Consumer"
@@ -2219,7 +2230,7 @@
             ]
           },
           "consumers": {
-            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Consumer"
@@ -2257,7 +2268,6 @@
           {
             "type": "object",
             "required": [
-              "modeOfStudy",
               "startDate",
               "endDate"
             ],
@@ -2334,19 +2344,6 @@
                   {
                     "$ref": "#/components/schemas/Organization",
                     "title": "Organization object"
-                  }
-                ]
-              },
-              "academicSession": {
-                "description": "The academicsession during which this programoffering takes place. [`expandable`](#tag/academic_session_model)\nBy default only the `academicSessionId` (a string) is returned. If the client requested an expansion of `academicSession` the full academicsession object should be returned.\n",
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/Identifier",
-                    "title": "academicSessionId"
-                  },
-                  {
-                    "$ref": "#/components/schemas/AcademicSession",
-                    "title": "AcademicSession object"
                   }
                 ]
               }
@@ -2600,7 +2597,7 @@
             }
           },
           "consumers": {
-            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Consumer"
@@ -2702,7 +2699,6 @@
           {
             "type": "object",
             "required": [
-              "modeOfStudy",
               "startDate",
               "endDate"
             ],
@@ -2791,19 +2787,6 @@
                   {
                     "$ref": "#/components/schemas/Organization",
                     "title": "Organization object"
-                  }
-                ]
-              },
-              "academicSession": {
-                "description": "The academicsession during which this courseoffering takes place. [`expandable`](#tag/academic_session_model)\nBy default only the `academicSessionId` (a string) is returned. If the client requested an expansion of `academicSession` the full academicsession object should be returned.\n",
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/Identifier",
-                    "title": "academicSessionId"
-                  },
-                  {
-                    "$ref": "#/components/schemas/AcademicSession",
-                    "title": "AcademicSession object"
                   }
                 ]
               }
@@ -2941,7 +2924,7 @@
             ]
           },
           "consumers": {
-            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Consumer"
@@ -3083,7 +3066,7 @@
             ]
           },
           "consumers": {
-            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Consumer"
@@ -3297,7 +3280,7 @@
             ]
           },
           "consumers": {
-            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Consumer"
@@ -3411,19 +3394,6 @@
                     "title": "Organization object"
                   }
                 ]
-              },
-              "academicSession": {
-                "description": "The academicsession during which this componentoffering takes place. [`expandable`](#tag/academic_session_model)\nBy default only the `academicSessionId` (a string) is returned. If the client requested an expansion of `academicSession` the full academicsession object should be returned.\n",
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/Identifier",
-                    "title": "academicSessionId"
-                  },
-                  {
-                    "$ref": "#/components/schemas/AcademicSession",
-                    "title": "AcademicSession object"
-                  }
-                ]
               }
             }
           }
@@ -3521,7 +3491,7 @@
             }
           },
           "consumers": {
-            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Consumer"
@@ -3697,7 +3667,7 @@
         ]
       },
       "AssociationFull": {
-        "anyOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/ProgramOfferingAssociation"
           },
@@ -3745,7 +3715,7 @@
         }
       },
       "AssociationWrite": {
-        "anyOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/ProgramOfferingAssociation"
           },
@@ -3835,7 +3805,7 @@
             ]
           },
           "consumers": {
-            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Consumer"
@@ -3968,7 +3938,7 @@
             "example": "2020-09-28T00:00:00.000Z"
           },
           "consumers": {
-            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+            "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Consumer"
@@ -4147,7 +4117,7 @@
       "consumer": {
         "name": "consumer",
         "in": "query",
-        "description": "Request entities meant for a specific consumer. This query parameter is independent from the `consumers` attribute. See the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.",
+        "description": "Request entities meant for a specific consumer. This query parameter is independent from the `consumers` attribute. See the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
         "required": false,
         "schema": {
           "type": "string"
@@ -4986,6 +4956,7 @@
           {
             "name": "expand",
             "in": "query",
+            "explode": false,
             "description": "Optional properties to expand, separated by a comma",
             "required": false,
             "schema": {
@@ -6025,6 +5996,7 @@
           {
             "name": "expand",
             "in": "query",
+            "explode": false,
             "description": "Optional properties to expand, separated by a comma",
             "required": false,
             "schema": {
@@ -6420,6 +6392,7 @@
           {
             "name": "expand",
             "in": "query",
+            "explode": false,
             "description": "Optional properties to include, separated by a comma",
             "required": false,
             "schema": {
@@ -7070,6 +7043,7 @@
           {
             "name": "expand",
             "in": "query",
+            "explode": false,
             "description": "Optional properties to include, separated by a comma",
             "required": false,
             "schema": {
@@ -7428,6 +7402,7 @@
           {
             "name": "expand",
             "in": "query",
+            "explode": false,
             "description": "Optional properties to expand, separated by a comma",
             "required": false,
             "schema": {
@@ -7647,6 +7622,7 @@
           {
             "name": "expand",
             "in": "query",
+            "explode": false,
             "description": "Optional properties to expand, separated by a comma",
             "required": false,
             "schema": {
@@ -7785,6 +7761,7 @@
           {
             "name": "sort",
             "in": "query",
+            "explode": false,
             "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
             "required": false,
             "schema": {
@@ -8033,6 +8010,7 @@
           {
             "name": "expand",
             "in": "query",
+            "explode": false,
             "description": "Optional properties to expand, separated by a comma",
             "required": false,
             "schema": {
@@ -8653,6 +8631,7 @@
           {
             "name": "expand",
             "in": "query",
+            "explode": false,
             "description": "Optional properties to expand, separated by a comma",
             "required": false,
             "schema": {
@@ -9022,6 +9001,7 @@
           {
             "name": "expand",
             "in": "query",
+            "explode": false,
             "description": "Optional properties to include, separated by a comma",
             "required": false,
             "schema": {
@@ -9219,6 +9199,7 @@
           {
             "name": "expand",
             "in": "query",
+            "explode": false,
             "description": "Optional properties to include, separated by a comma",
             "required": false,
             "schema": {
@@ -9307,9 +9288,6 @@
           },
           {
             "$ref": "#/components/parameters/search"
-          },
-          {
-            "$ref": "#/components/parameters/teachingLanguage"
           },
           {
             "name": "sort",
@@ -9855,6 +9833,7 @@
           {
             "name": "expand",
             "in": "query",
+            "explode": false,
             "description": "Optional properties to expand, separated by a comma",
             "required": false,
             "schema": {

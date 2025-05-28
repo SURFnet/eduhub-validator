@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.7
+- Pull in the latest bugfixes from the OOAPI base specification
+
 ## 0.2.6
 - Use new string template function for eduxchange profile
 
