@@ -14,13 +14,13 @@
  [;; page through items list for any kind of entity
   {:match     [[:request, :method, "get"]
                [:request, :path, ?path]
+               [:request :query-params ?query-params]
                [:response :status 200]
                [:response, :body, "pageNumber", ?pageNumber]
                [:response, :body, "hasNextPage", true]]
    :generates [{:method       "get"
                 :path         ?path
-                :query-params {"pageNumber" "{(inc ?pageNumber)}"
-                               "consumer"   "rio"}}]}
+                :query-params (assoc ?query-params "pageNumber" (str (inc ?pageNumber)))}]}
 
 
   {:match     [[:request, :method, "get"]
