@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.0
+- Update Apie to latest version
+
 ## 0.2.7
 - Pull in the latest bugfixes from the OOAPI base specification
 
