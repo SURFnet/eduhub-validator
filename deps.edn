@@ -7,4 +7,9 @@
            :clj-kondo {:replace-deps {clj-kondo/clj-kondo {:mvn/version "RELEASE"}}
                        :main-opts    ["-m" "clj-kondo.main"]}
            :outdated  {:replace-deps {com.github.liquidz/antq {:mvn/version "RELEASE"}}
-                       :main-opts    ["-m" "antq.core"]}}}
+                       :main-opts    ["-m" "antq.core"]}
+           :watson    {:paths        []
+                       :replace-deps {io.github.clj-holmes/clj-watson {:git/tag "v6.0.1"
+                                                                       :git/sha "b5203518d023d50e70a240d59a0770ccbacf3867"}
+                                      org.owasp/dependency-check-core {:mvn/version "RELEASE"}}
+                       :main-opts    ["-m" "clj-watson.cli"]}}}

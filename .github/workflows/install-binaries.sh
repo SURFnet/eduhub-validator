@@ -4,20 +4,16 @@
 
 set -ex
 
-CLOJURE_VERSION="1.11.1.1273"
-BABASHKA_VERSION="1.3.188"
-BABASHKA_ARCH="linux-amd64"
-
-if [ ! -x "bin/clojure" ]; then
-    F="linux-install-${CLOJURE_VERSION}.sh"
-    curl -O "https://download.clojure.org/install/${F}"
-    bash "${F}" -p "$(pwd)"
-    rm -f "${F}"
+if [ ! -x "${HOME}/bin/clojure" ]; then
+    curl -L https://github.com/clojure/brew-install/releases/latest/download/posix-install.sh > install-clojure.sh
+    chmod +x install-clojure.sh
+    sudo ./install-clojure.sh
+    rm install-clojure.sh
 fi
 
-if [ ! -x "bin/bb" ]; then
-    F="babashka-${BABASHKA_VERSION}-${BABASHKA_ARCH}.tar.gz"
-    curl -LO "https://github.com/babashka/babashka/releases/download/v${BABASHKA_VERSION}/${F}"
-    tar -zxf "${F}" -C bin
-    rm -f "${F}"
+if [ ! -x "${HOME}/bin/bb" ]; then
+    curl -L "https://raw.githubusercontent.com/babashka/babashka/master/install" > install-bb.sh
+    chmod +x install-bb.sh
+    sudo ./install-bb.sh
+    rm install-bb.sh
 fi

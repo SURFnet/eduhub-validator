@@ -23,7 +23,7 @@ version:=$(shell git describe --tags)
 # need latest snapshot for standalone executables
 BABASHKA_VERSION:=1.3.188
 
-.PHONY: uberjar
+.PHONY: uberjar watson
 
 exec_base_name=eduhub-validator
 release_name=$(exec_base_name)-$(version)
@@ -103,3 +103,6 @@ sds_green_css_files=$(shell find assets/sds-green -name \*.css | sort)
 generated/resources/extra.css: $(sds_green_css_files)
 	mkdir -p generated/resources
 	cat $(sds_green_css_files) > $@
+
+watson:
+	clojure -M:watson scan -p deps.edn -f -s -w .watson.properties
