@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.1
+- Update eduXchange profile to version that allows `null` for non-required fields
+
 ## 1.0.0
 - Update Apie to latest version
 
