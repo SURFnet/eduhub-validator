@@ -1560,7 +1560,7 @@
           },
           "otherCodes": {
             "type": [
-              "object",
+              "array",
               "null"
             ],
             "description": "An array of additional human readable codes/identifiers for the entity being described.",
@@ -3050,7 +3050,7 @@
           },
           "otherCodes": {
             "type": [
-              "object",
+              "array",
               "null"
             ],
             "description": "An array of additional human readable codes/identifiers for the entity being described.",
@@ -3066,7 +3066,7 @@
           },
           "addresses": {
             "type": [
-              "object",
+              "array",
               "null"
             ],
             "description": "Addresses for this program",
@@ -3112,8 +3112,7 @@
           "coordinators": {
             "description": "The person(s) responsible for this program. This object is [`expandable`](#tag/person_model)",
             "type": [
-              "string",
-              "object",
+              "array",
               "null"
             ],
             "items": {
@@ -3470,7 +3469,7 @@
           },
           "addresses": {
             "type": [
-              "object",
+              "array",
               "null"
             ],
             "description": "Addresses for this course",
@@ -3480,7 +3479,7 @@
           },
           "otherCodes": {
             "type": [
-              "object",
+              "array",
               "null"
             ],
             "description": "An array of additional human readable codes/identifiers for the entity being described.",
@@ -3542,8 +3541,7 @@
           "coordinators": {
             "description": "The person(s) responsible for this course. This object is [`expandable`](#tag/person_model)",
             "type": [
-              "string",
-              "object",
+              "array",
               "null"
             ],
             "items": {
