@@ -1564,7 +1564,6 @@
               "null"
             ],
             "description": "An array of additional human readable codes/identifiers for the entity being described.",
-            "minItems": 1,
             "items": {
               "$ref": "#/components/schemas/IdentifierEntry"
             },
