@@ -2823,7 +2823,8 @@
           "description",
           "teachingLanguage",
           "level",
-          "studyLoad"
+          "studyLoad",
+          "consumers"
         ],
         "properties": {
           "primaryCode": {
@@ -3256,7 +3257,8 @@
           "description",
           "teachingLanguage",
           "level",
-          "studyLoad"
+          "studyLoad",
+          "consumers"
         ],
         "properties": {
           "primaryCode": {
@@ -4093,7 +4095,8 @@
               "teachingLanguage",
               "resultExpected",
               "startDate",
-              "endDate"
+              "endDate",
+              "consumers"
             ]
           }
         ]
@@ -4222,7 +4225,8 @@
               "teachingLanguage",
               "resultExpected",
               "startDate",
-              "endDate"
+              "endDate",
+              "consumers"
             ]
           }
         ]
