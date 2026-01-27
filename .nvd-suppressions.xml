@@ -5,4 +5,9 @@
     <packageUrl regex="true">.*</packageUrl>
     <cve>CVE-2017-20189</cve>
   </suppress>
+  <suppress>
+    <notes>False positive: matches wrong package.</notes>
+    <packageUrl regex="true">.*openapi-v3-validator.*</packageUrl>
+    <cve>CVE-2025-15104</cve>
+  </suppress>
 </suppressions>
