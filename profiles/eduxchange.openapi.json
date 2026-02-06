@@ -2781,6 +2781,124 @@
           }
         }
       },
+      "EduXchangeConsumerCourseKOM": {
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "const": "kom"
+          },
+          "theme": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The theme of the Program or Course within the alliance.\n"
+          },
+          "themes": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "description": "An array with a list of themes.\n",
+            "items": {
+              "type": "string"
+            }
+          },
+          "selection": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "description": "A boolean indicating whether this Program or Course is selective, e.g. whether student need to pass extra requirements before being allowed to enroll.\n"
+          },
+          "type": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "A string indicating whether a Program or Course is broadening or deepening.\n",
+            "enum": [
+              "broadening",
+              "deepening"
+            ]
+          },
+          "visibleForOwnStudents": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "description": "A boolean value indicating whether this Program or Course should be visible for students of the offering institution.\n"
+          },
+          "enrollmentForOwnStudents": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "A string indicating which enrollments process should be followed for students of the offering institution.\n",
+            "enum": [
+              "broker",
+              "url"
+            ]
+          },
+          "visibleForGuests": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "description": "A boolean value indicating whether this Program or Course should be visible for students outside the partner institutions.\n"
+          },
+          "enrollmentForGuests": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "A string indicating which enrollments process should be followed for students outside the partner institutions.\n",
+            "enum": [
+              "broker",
+              "url"
+            ]
+          },
+          "jointPartnerCodes": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "description": "An array with a list of partner codes.\n",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "An optional object with a reference to the source of a Course or Program. In an alliance one of the institutions could act as overall coordinator and specifies the program and underlying courses. Underlying courses could be given at one of the other institutions. In this source object the course at the other institution can be specified.\n",
+            "properties": {
+              "shortName": {
+                "type": "string",
+                "description": "The shortName of the institution to identify the source institution.\n",
+                "enum": [
+                  "tue",
+                  "wur",
+                  "uu"
+                ]
+              },
+              "primaryCode": {
+                "type": "string",
+                "description": "A string value with the primaryCode of the course to identify the source course.\n"
+              },
+              "uuid": {
+                "type": "string",
+                "format": "uuid",
+                "description": "The uuid of the course to reference the OOAPI endpoint of the source course.\n"
+              }
+            }
+          }
+        }
+      },
       "EduXchangeConsumerCourse": {
         "allOf": [
           {
@@ -2804,6 +2922,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/EduXchangeConsumerCourseEUROTEQ"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EduXchangeConsumerCourseKOM"
                     }
                   ]
                 }
@@ -3780,7 +3901,8 @@
             "enum": [
               "ewuu",
               "lde",
-              "euroteq"
+              "euroteq",
+              "kom"
             ]
           },
           "enrollmentUrl": {
