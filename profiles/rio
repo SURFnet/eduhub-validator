@@ -1,13 +1,13 @@
 {:openapi-spec "rio.openapi.json"
  :seeds
- [{:method       "get"
-   :path         "/courses"
+ [{:method "get"
+   :path   "/courses"
    :query-params {"consumer" "rio"}}
-  {:method       "get"
-   :path         "/education-specifications"
+  {:method "get"
+   :path   "/education-specifications"
    :query-params {"consumer" "rio"}}
-  {:method       "get"
-   :path         "/programs"
+  {:method "get"
+   :path   "/programs"
    :query-params {"consumer" "rio"}}]
 
  :rules
@@ -18,36 +18,36 @@
                [:response :status 200]
                [:response, :body, "pageNumber", ?pageNumber]
                [:response, :body, "hasNextPage", true]]
-   :generates [{:method       "get"
-                :path         ?path
+   :generates [{:method "get"
+                :path ?path
                 :query-params (assoc ?query-params "pageNumber" (str (inc ?pageNumber)))}]}
 
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "courseId" ?id]]
-   :generates [{:method       "get"
-                :path         "/courses/{?id}"
+   :generates [{:method "get"
+                :path   "/courses/{?id}"
                 :query-params {"returnTimelineOverrides" "true"}}
-               {:method       "get"
-                :path         "/courses/{?id}/offerings"
+               {:method "get"
+                :path   "/courses/{?id}/offerings"
                 :query-params {"pageSize" "250"
                                "consumer" "rio"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "educationSpecificationId" ?id]]
-   :generates [{:method       "get"
-                :path         "/education-specifications/{?id}"
+   :generates [{:method "get"
+                :path   "/education-specifications/{?id}"
                 :query-params {"returnTimelineOverrides" "true"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "programId" ?id]]
-   :generates [{:method       "get"
-                :path         "/programs/{?id}"
+   :generates [{:method "get"
+                :path   "/programs/{?id}"
                 :query-params {"returnTimelineOverrides" "true"}}
-               {:method       "get"
-                :path         "/programs/{?id}/offerings"
+               {:method "get"
+                :path "/programs/{?id}/offerings"
                 :query-params {"pageSize" "250"
                                "consumer" "rio"}}]}]}

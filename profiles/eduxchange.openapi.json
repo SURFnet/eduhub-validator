@@ -1405,7 +1405,7 @@
           "additional": {
             "type": "array",
             "description": "Further details like building name, suite, apartment number, etc.",
-            "minItems": 1,
+            "minItems": 0,
             "items": {
               "$ref": "#/components/schemas/LanguageTypedString"
             },
@@ -1517,7 +1517,7 @@
               "null"
             ],
             "description": "Any general description of the organization should clearly mention the type of higher education organization, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences).",
-            "minItems": 1,
+            "minItems": 0,
             "items": {
               "$ref": "#/components/schemas/LanguageTypedString"
             },
@@ -3025,7 +3025,7 @@
               "null"
             ],
             "description": "The duration of this program. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.",
-            "pattern": "^(-?)P(?=\\d|T\\d)(?:(\\d+)Y)?(?:(\\d+)M)?(?:(\\d+)([DW]))?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+(?:\\.\\d+)?)S)?)?$",
+            "pattern": "^$|^(-?)P(?=\\d|T\\d)(?:(\\d+)Y)?(?:(\\d+)M)?(?:(\\d+)([DW]))?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+(?:\\.\\d+)?)S)?)?$",
             "example": "P1DT30H4S"
           },
           "firstStartDate": {
@@ -3104,7 +3104,7 @@
               "null"
             ],
             "description": "A description of the way exams for this course are taken (ECTS-assessment method and criteria).",
-            "minItems": 1,
+            "minItems": 0,
             "items": {
               "$ref": "#/components/schemas/LanguageTypedString"
             },
@@ -3127,7 +3127,7 @@
                 "value": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance"
               }
             ],
-            "minItems": 1,
+            "minItems": 0,
             "items": {
               "$ref": "#/components/schemas/LanguageTypedString"
             }
@@ -3138,7 +3138,7 @@
               "null"
             ],
             "description": "Normally, students will receive a diploma when they have completed the (official) study program and have obtained the required number of credits. If there are any other specific requirements that students need to have fulfilled, mention them here.",
-            "minItems": 1,
+            "minItems": 0,
             "items": {
               "$ref": "#/components/schemas/LanguageTypedString"
             }
@@ -3423,7 +3423,7 @@
               "null"
             ],
             "description": "The duration of this course. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.",
-            "pattern": "^(-?)P(?=\\d|T\\d)(?:(\\d+)Y)?(?:(\\d+)M)?(?:(\\d+)([DW]))?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+(?:\\.\\d+)?)S)?)?$",
+            "pattern": "^$|^(-?)P(?=\\d|T\\d)(?:(\\d+)Y)?(?:(\\d+)M)?(?:(\\d+)([DW]))?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+(?:\\.\\d+)?)S)?)?$",
             "example": "P1DT30H4S"
           },
           "firstStartDate": {
@@ -3497,7 +3497,7 @@
                 "value": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance"
               }
             ],
-            "minItems": 1,
+            "minItems": 0,
             "items": {
               "$ref": "#/components/schemas/LanguageTypedString"
             }
@@ -3508,7 +3508,7 @@
               "null"
             ],
             "description": "Normally, students will receive a diploma when they have completed the (official) study program and have obtained the required number of credits. If there are any other specific requirements that students need to have fulfilled, mention them here.",
-            "minItems": 1,
+            "minItems": 0,
             "items": {
               "$ref": "#/components/schemas/LanguageTypedString"
             }
@@ -3552,7 +3552,7 @@
               "null"
             ],
             "description": "A description of the way exams for this course are taken (ECTS-assessment method and criteria).",
-            "minItems": 1,
+            "minItems": 0,
             "items": {
               "$ref": "#/components/schemas/LanguageTypedString"
             },
