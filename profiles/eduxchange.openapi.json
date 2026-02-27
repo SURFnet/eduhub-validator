@@ -1385,9 +1385,7 @@
       "Address": {
         "type": "object",
         "description": "The full street address",
-        "required": [
-          "addressType"
-        ],
+        "required": [],
         "properties": {
           "addressType": {
             "$ref": "#/components/schemas/addressType"
@@ -2086,7 +2084,8 @@
         "enum": [
           "partner",
           "parent",
-          "other"
+          "other",
+          ""
         ],
         "example": "partner"
       },
