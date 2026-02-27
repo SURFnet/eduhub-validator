@@ -2437,6 +2437,7 @@
             ],
             "description": "The theme of the Program or Course within the alliance.\n",
             "enum": [
+              "",
               "10",
               "11",
               "12",
@@ -2458,6 +2459,7 @@
             "items": {
               "type": "string",
               "enum": [
+                "",
                 "10",
                 "11",
                 "12",
@@ -2584,6 +2586,7 @@
             ],
             "description": "The theme of the Program or Course within the alliance.\n",
             "enum": [
+              "",
               "Architecture and Construction",
               "Business and Economics",
               "Chemistry and Biology",
@@ -2609,6 +2612,7 @@
             "items": {
               "type": "string",
               "enum": [
+                "",
                 "Architecture and Construction",
                 "Business and Economics",
                 "Chemistry and Biology",
