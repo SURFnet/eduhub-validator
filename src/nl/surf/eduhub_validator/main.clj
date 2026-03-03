@@ -1,3 +1,7 @@
+;;; SPDX-FileCopyrightText: 2024, 2025, 2026 SURF B.V.
+;;;
+;;; SPDX-License-Identifier: EPL-2.0 WITH Classpath-exception-2.0
+
 (ns nl.surf.eduhub-validator.main
   (:require [babashka.json :as json]
             [clojure.java.io :as io]

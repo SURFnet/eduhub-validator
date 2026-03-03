@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2024, 2025, 2026 SURF B.V.
+
+SPDX-License-Identifier: EPL-2.0 WITH Classpath-exception-2.0
+-->
+
 # For Eduhub specification authors
 
 This document is intended for authors of the Open Education
