@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# SPDX-FileCopyrightText: 2024, 2025, 2026 SURF B.V.
+#
+# SPDX-License-Identifier: EPL-2.0 WITH Classpath-exception-2.0
+
 # Install clojure and babashka to `./bin` and `./lib`
 
 set -ex

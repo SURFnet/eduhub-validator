@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024, 2025, 2026 SURF B.V.
+
+# SPDX-License-Identifier: EPL-2.0 WITH Classpath-exception-2.0
+
 # Recipes for building release artifacts
 #
 # Expects the artifact to be in the format
@@ -23,7 +27,7 @@ version:=$(shell git describe --tags)
 # need latest snapshot for standalone executables
 BABASHKA_VERSION:=1.3.188
 
-.PHONY: uberjar watson
+.PHONY: uberjar watson reuse-lint check
 
 exec_base_name=eduhub-validator
 release_name=$(exec_base_name)-$(version)
@@ -83,7 +87,7 @@ $(exec_base_name): $(uberjar)
 
 usage.txt.generated: $(exec_base_name)
 	echo "\`\`\`" >$@
-	"./$(exec_base_name)" --help |sed -n '/^Usage:/,/\Z/p' >>$@
+	bb $(uberjar) --help |sed -n '/^Usage:/,/\Z/p' >>$@
 	echo "\`\`\`" >>$@
 
 README.md: usage.txt.generated README.src.md
@@ -106,3 +110,8 @@ generated/resources/extra.css: $(sds_green_css_files)
 
 watson:
 	clojure -M:watson scan -p deps.edn -f -s -w .watson.properties
+
+reuse-lint:
+	reuse lint
+
+check: watson reuse-lint

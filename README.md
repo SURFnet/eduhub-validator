@@ -1,4 +1,10 @@
 <!-- WARNING! THIS FILE IS GENERATED, EDIT README.src.md INSTEAD -->
+<!--
+SPDX-FileCopyrightText: 2024, 2025, 2026 SURF B.V.
+
+SPDX-License-Identifier: EPL-2.0 WITH Classpath-exception-2.0
+-->
+
 # SURFeduhub API validator
 
 A command-line tool to spider and validate [Open Education

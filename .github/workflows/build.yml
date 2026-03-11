@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024, 2025, 2026 SURF B.V.
+#
+# SPDX-License-Identifier: EPL-2.0 WITH Classpath-exception-2.0
+
 name: Build artifacts
 on:
   push
@@ -17,11 +21,18 @@ jobs:
           ~/bin
           ~/lib
 
+    - name: Install packages
+      run: |
+        sudo apt-get install -y reuse
+
     - name: Install clj runtime
       run: .github/workflows/install-binaries.sh
 
     - name: Run release checks
       run: make release_check
+
+    - name: Run license checks
+      run: make reuse-lint
 
   create_release:
     if: startsWith(github.ref, 'refs/tags/v0') || startsWith(github.ref, 'refs/tags/v1')
