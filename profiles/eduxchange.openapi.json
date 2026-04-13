@@ -2305,6 +2305,7 @@
         ]
       },
       "EduXchangeConsumerCourseEWUU": {
+        "type": "object",
         "required": [
           "name"
         ],
@@ -2428,6 +2429,7 @@
         }
       },
       "EduXchangeConsumerCourseLDE": {
+        "type": "object",
         "required": [
           "name"
         ],
@@ -2577,6 +2579,7 @@
         }
       },
       "EduXchangeConsumerCourseEUROTEQ": {
+        "type": "object",
         "required": [
           "name"
         ],
@@ -2790,6 +2793,7 @@
         }
       },
       "EduXchangeConsumerCourseKOM": {
+        "type": "object",
         "required": [
           "name"
         ],
@@ -3277,7 +3281,7 @@
             "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EduXchangeConsumerCourse"
+              "$ref": "#/components/schemas/Consumer"
             },
             "example": [
               {
@@ -3301,7 +3305,10 @@
                   "eng"
                 ]
               }
-            ]
+            ],
+            "contains": {
+              "$ref": "#/components/schemas/EduXchangeConsumerCourse"
+            }
           },
           "ext": {
             "$ref": "#/components/schemas/Ext",
@@ -3621,7 +3628,7 @@
             "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EduXchangeConsumerCourse"
+              "$ref": "#/components/schemas/Consumer"
             },
             "example": [
               {
@@ -3640,7 +3647,10 @@
                   "eng"
                 ]
               }
-            ]
+            ],
+            "contains": {
+              "$ref": "#/components/schemas/EduXchangeConsumerCourse"
+            }
           },
           "ext": {
             "$ref": "#/components/schemas/Ext",
@@ -3899,6 +3909,7 @@
         "example": "1-10"
       },
       "EduXchangeConsumerOfferingALL": {
+        "type": "object",
         "required": [
           "name"
         ],
@@ -4120,7 +4131,7 @@
             "description": "The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EduXchangeConsumerOffering"
+              "$ref": "#/components/schemas/Consumer"
             },
             "example": [
               {
@@ -4132,7 +4143,10 @@
                   "coaching"
                 ]
               }
-            ]
+            ],
+            "contains": {
+              "$ref": "#/components/schemas/EduXchangeConsumerOffering"
+            }
           },
           "ext": {
             "$ref": "#/components/schemas/Ext"
