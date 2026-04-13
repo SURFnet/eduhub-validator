@@ -1732,7 +1732,12 @@
         "example": {
           "studyLoadUnit": "ects",
           "value": 3
-        }
+        },
+        "required": [
+          "studyLoadUnit",
+          "value"
+        ],
+        "additionalProperties": false
       },
       "modeOfStudy": {
         "type": "string",
