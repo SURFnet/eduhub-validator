@@ -1,0 +1,11 @@
+{:openapi-spec "ooapi-v6-light.json"
+ :seeds
+ [{:method "get"
+   :path   "/"}
+  {:method "get"
+   :path   "/buildings"}
+  ]
+
+ :rules
+ [
+]}

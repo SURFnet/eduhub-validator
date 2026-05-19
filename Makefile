@@ -27,7 +27,7 @@ version:=$(shell git describe --tags)
 # need latest snapshot for standalone executables
 BABASHKA_VERSION:=1.3.188
 
-.PHONY: uberjar watson reuse-lint check
+.PHONY: uberjar watson reuse-lint check release
 
 exec_base_name=eduhub-validator
 release_name=$(exec_base_name)-$(version)
