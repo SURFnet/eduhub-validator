@@ -16,3 +16,4 @@
 /usage.txt.generated
 eduhub-validator*
 .lsp/
+/.nrepl-port
