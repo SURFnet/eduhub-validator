@@ -1,6 +1,5 @@
 ooapi
 rio
 eduxchange
-ooapi-v6-light
 ooapi-v6
 rio-v6
