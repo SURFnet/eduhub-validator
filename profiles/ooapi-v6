@@ -1,4 +1,4 @@
-{:openapi-spec "ooapi-v6.json"
+{:openapi-spec "ooapi-v6.openapi.json"
  :seeds
  [{:method "get"
    :path   "/"}
