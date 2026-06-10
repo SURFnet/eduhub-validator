@@ -20,9 +20,9 @@
   {:method "get"
    :path   "/programmes"}
   {:method "get"
-   :path   "/rooms"}]
+   :path   "/rooms"}
   {:method "get"
-   :path   "/learning-outcomes}
+   :path   "/learning-outcomes"}]
 
  :rules
  [;; page through items list for any kind of entity
