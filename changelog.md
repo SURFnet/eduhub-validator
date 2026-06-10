@@ -6,6 +6,9 @@ SPDX-License-Identifier: EPL-2.0 WITH Classpath-exception-2.0
 
 # Changelog
 
+## 1.1.0
+- Add rio-v6 and ooapi-v6 profiles
+
 ## 1.0.11
 - Update Apie: support deepObject parameters, fix reporting of schema
   title in oneOf and someOf issues
