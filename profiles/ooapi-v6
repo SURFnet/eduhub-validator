@@ -21,6 +21,8 @@
    :path   "/programmes"}
   {:method "get"
    :path   "/rooms"}]
+  {:method "get"
+   :path   "/learning-outcomes}
 
  :rules
  [;; page through items list for any kind of entity
@@ -167,4 +169,10 @@
                [:response, :body, "items", ?i "roomId" ?id]]
    :generates [{:method "get"
                 :path   "/rooms/{?id}"}]}
+
+  {:match     [[:request, :method, "get"]
+               [:response :status 200]
+               [:response, :body, "items", ?i "learningOutcomeId" ?id]]
+   :generates [{:method "get"
+                :path   "/learning-outcomes/{?id}"}]}
 ]}
