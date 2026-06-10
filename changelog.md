@@ -6,6 +6,10 @@ SPDX-License-Identifier: EPL-2.0 WITH Classpath-exception-2.0
 
 # Changelog
 
+## 1.0.11
+- Update Apie: support deepObject parameters, fix reporting of schema
+  title in oneOf and someOf issues
+  
 ## 1.0.1
 - Update eduXchange profile to version that allows `null` for non-required fields
 
