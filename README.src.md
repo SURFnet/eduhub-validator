@@ -80,9 +80,11 @@ A few SURFeduhub profiles are available in the [profiles](./profiles)
 directory and are built into the binary releases:
 
   - `ooapi` -- the full OOAPI v5 specification
+  - `ooapi-v6` -- the full OOAPI v6 specification
   - `rio` -- the RIO profile of OOAPI v5.
+  - `rio-v6` -- the RIO profile of OOAPI v6
   - `eduxchange` -- the eduxchange profile of OOAPI v5.
-
+  
 # Extending the validator
 
 ## Common validator source
