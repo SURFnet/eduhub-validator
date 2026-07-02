@@ -595,7 +595,10 @@
                       ],
                       "properties": {
                         "items": {
-                          "$ref": "#/components/schemas/CourseOffering"
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/CourseOffering"
+                          }
                         },
                         "ext": {
                           "$ref": "#/components/schemas/Ext"

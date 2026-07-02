@@ -111,11 +111,11 @@
                {:method "get"
                 :path   "/organisations/{?id}/learning-components"}
                {:method "get"
-                :path   "/organisations/{?id}/learning-components-offerings"}
+                :path   "/organisations/{?id}/learning-component-offerings"}
                {:method "get"
                 :path   "/organisations/{?id}/test-components"}
                {:method "get"
-                :path   "/organisations/{?id}/test-components-offerings"}
+                :path   "/organisations/{?id}/test-component-offerings"}
                {:method "get"
                 :path   "/organisations/{?id}/course-offerings"}
                {:method "get"
