@@ -2,12 +2,10 @@
  :seeds
  [{:method "get"
    :path   "/courses"
-   :query-params {"consumer" "rio"}
-   :headers {"accept" "application/vnd.oeapi+json;version=6"}}
+   :headers {"accept" "application/vnd.oeapi+json;version=6;consumer=rio;consumer-version=6"}}
   {:method "get"
    :path   "/programmes"
-   :query-params {"consumer" "rio"}
-   :headers {"accept" "application/vnd.oeapi+json;version=6"}}]
+   :headers {"accept" "application/vnd.oeapi+json;version=6;consumer=rio;consumer-version=6"}}]
 
  :rules
  [;; page through items list for any kind of entity
@@ -20,7 +18,7 @@
    :generates [{:method "get"
                 :path ?path
                 :query-params (assoc ?query-params "pageNumber" (str (inc ?pageNumber)))
-                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
+                :headers {"accept" "application/vnd.oeapi+json;version=6;consumer=rio;consumer-version=6"}}]}
 
 
   {:match     [[:request, :method, "get"]
@@ -28,21 +26,19 @@
                [:response, :body, "items", ?i "courseId" ?id]]
    :generates [{:method "get"
                 :path   "/courses/{?id}"
-                :query-params {"returnTimelineOverrides" "true"}}
+                :headers {"accept" "application/vnd.oeapi+json;version=6;consumer=rio;consumer-version=6"}}
                {:method "get"
                 :path   "/courses/{?id}/course-offerings"
-                :query-params {"pageSize" "250"
-                               "consumer" "rio"}
-                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
+                :query-params {"pageSize" "250"}
+                :headers {"accept" "application/vnd.oeapi+json;version=6;consumer=rio;consumer-version=6"}}]} 
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "programmeId" ?id]]
    :generates [{:method "get"
                 :path   "/programmes/{?id}"
-                :query-params {"returnTimelineOverrides" "true"}}
+                :headers {"accept" "application/vnd.oeapi+json;version=6;consumer=rio;consumer-version=6"}}
                {:method "get"
                 :path "/programmes/{?id}/programme-offerings"
-                :query-params {"pageSize" "250"
-                               "consumer" "rio"}
-                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}]}
+                :query-params {"pageSize" "250"}
+                :headers {"accept" "application/vnd.oeapi+json;version=6;consumer=rio;consumer-version=6"}}]}]}
