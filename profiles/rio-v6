@@ -2,10 +2,12 @@
  :seeds
  [{:method "get"
    :path   "/courses"
-   :query-params {"consumer" "rio"}} 
+   :query-params {"consumer" "rio"}
+   :headers {"accept" "application/vnd.oeapi+json;version=6"}}
   {:method "get"
    :path   "/programmes"
-   :query-params {"consumer" "rio"}}]
+   :query-params {"consumer" "rio"}
+   :headers {"accept" "application/vnd.oeapi+json;version=6"}}]
 
  :rules
  [;; page through items list for any kind of entity
@@ -17,7 +19,8 @@
                [:response, :body, "hasNextPage", true]]
    :generates [{:method "get"
                 :path ?path
-                :query-params (assoc ?query-params "pageNumber" (str (inc ?pageNumber)))}]}
+                :query-params (assoc ?query-params "pageNumber" (str (inc ?pageNumber)))
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
 
 
   {:match     [[:request, :method, "get"]
@@ -29,7 +32,8 @@
                {:method "get"
                 :path   "/courses/{?id}/course-offerings"
                 :query-params {"pageSize" "250"
-                               "consumer" "rio"}}]} 
+                               "consumer" "rio"}
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
@@ -40,4 +44,5 @@
                {:method "get"
                 :path "/programmes/{?id}/programme-offerings"
                 :query-params {"pageSize" "250"
-                               "consumer" "rio"}}]}]}
+                               "consumer" "rio"}
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}]}
