@@ -112,8 +112,6 @@ directory and are built into the binary releases:
   - `ooapi` -- the full OOAPI v5 specification
   - `rio` -- the RIO profile of OOAPI v5.
   - `eduxchange` -- the eduxchange profile of OOAPI v5.
-  - `ooapi-v6` -- the full OOAPI v6 specification
-  - `rio-v6` -- the RIO profile of OOAPI v6
 
 # Extending the validator
 
