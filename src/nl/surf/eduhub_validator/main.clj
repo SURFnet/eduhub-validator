@@ -20,9 +20,8 @@
    ;; insert default builtin-profile in options
    (fn [[short-opt :as option]]
      (if (= "-r" short-opt)
-       ["-r" "--profile PROFILE" "Path to profile or name of builtin profile"
-        :id :profile
-        :default (first included-profiles)]
+       ;; apie has no default for PROFILE option
+       (into option [:default (first included-profiles)])
        option))
    apie/cli-options))
 
