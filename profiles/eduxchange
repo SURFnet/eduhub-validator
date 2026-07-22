@@ -2,17 +2,20 @@
  :seeds
  [{:method "get"
    :path   "/courses"
-   :query-params {"consumer" "eduxchange"}
+   :query-params {"consumer" "eduxchange"
                   "pageSize" "250"}
+   :headers {"accept" "application/json"}}
   {:method "get"
    :path   "/organizations"
-   :query-params {"consumer" "eduxchange"}
+   :query-params {"consumer" "eduxchange"
                   "organizationType" "root"}
+   :headers {"accept" "application/json"}}
   {:method "get"
    :path   "/programs"
-   :query-params {"consumer" "eduxchange"}
+   :query-params {"consumer" "eduxchange"
                   "programType" "minor"
-                  "pageSize" "250"}]
+                  "pageSize" "250"}
+   :headers {"accept" "application/json"}}]
 
  :rules
  [;; page through items list for any kind of entity
@@ -25,7 +28,8 @@
    :generates [{:method       "get"
                 :path         ?path
                 ;; params must be passed as strings
-                :query-params (assoc ?query-params "pageNumber" (str (inc ?pageNumber)))}]}
+                :query-params (assoc ?query-params "pageNumber" (str (inc ?pageNumber)))
+                :headers {"accept" "application/json"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
@@ -33,10 +37,12 @@
    :generates [{:method "get"
                 :path   "/courses/{?id}"
                 :query-params {"consumer" "eduxchange"
-                               "expand" "coordinators"}}
+                               "expand" "coordinators"}
+                :headers {"accept" "application/json"}}
                {:method "get"
                 :path   "/courses/{?id}/offerings"
-                :query-params {"consumer" "eduxchange"}}]}
+                :query-params {"consumer" "eduxchange"}
+                :headers {"accept" "application/json"}}]}
 
   ;; from any kind of offering
   {:match     [[:request, :method, "get"]
@@ -45,7 +51,8 @@
    :generates [{:method "get"
                 :path   "/offerings/{?id}"
                 :query-params {"consumer" "eduxchange"
-                               "expand" "academicSession"}}]}
+                               "expand" "academicSession"}
+                :headers {"accept" "application/json"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
@@ -53,7 +60,9 @@
    :generates [{:method "get"
                 :path   "/programs/{?id}"
                 :query-params {"consumer" "eduxchange"
-                               "expand" "coordinators,organization"}}
+                               "expand" "coordinators,organization"}
+                :headers {"accept" "application/json"}}
                {:method "get"
                 :path   "/programs/{?id}/offerings"
-                :query-params {"consumer" "eduxchange"}}]}]}
+                :query-params {"consumer" "eduxchange"}
+                :headers {"accept" "application/json"}}]}]}

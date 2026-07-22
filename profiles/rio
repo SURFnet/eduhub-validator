@@ -2,13 +2,16 @@
  :seeds
  [{:method "get"
    :path   "/courses"
-   :query-params {"consumer" "rio"}}
+   :query-params {"consumer" "rio"}
+   :headers {"accept" "application/json"}}
   {:method "get"
    :path   "/education-specifications"
-   :query-params {"consumer" "rio"}}
+   :query-params {"consumer" "rio"}
+   :headers {"accept" "application/json"}}
   {:method "get"
    :path   "/programs"
-   :query-params {"consumer" "rio"}}]
+   :query-params {"consumer" "rio"}
+   :headers {"accept" "application/json"}}]
 
  :rules
  [;; page through items list for any kind of entity
@@ -20,7 +23,8 @@
                [:response, :body, "hasNextPage", true]]
    :generates [{:method "get"
                 :path ?path
-                :query-params (assoc ?query-params "pageNumber" (str (inc ?pageNumber)))}]}
+                :query-params (assoc ?query-params "pageNumber" (str (inc ?pageNumber)))
+                :headers {"accept" "application/json"}}]}
 
 
   {:match     [[:request, :method, "get"]
@@ -28,26 +32,31 @@
                [:response, :body, "items", ?i "courseId" ?id]]
    :generates [{:method "get"
                 :path   "/courses/{?id}"
-                :query-params {"returnTimelineOverrides" "true"}}
+                :query-params {"returnTimelineOverrides" "true"}
+                :headers {"accept" "application/json"}}
                {:method "get"
                 :path   "/courses/{?id}/offerings"
                 :query-params {"pageSize" "250"
-                               "consumer" "rio"}}]}
+                               "consumer" "rio"}
+                :headers {"accept" "application/json"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "educationSpecificationId" ?id]]
    :generates [{:method "get"
                 :path   "/education-specifications/{?id}"
-                :query-params {"returnTimelineOverrides" "true"}}]}
+                :query-params {"returnTimelineOverrides" "true"}
+                :headers {"accept" "application/json"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "programId" ?id]]
    :generates [{:method "get"
                 :path   "/programs/{?id}"
-                :query-params {"returnTimelineOverrides" "true"}}
+                :query-params {"returnTimelineOverrides" "true"}
+                :headers {"accept" "application/json"}}
                {:method "get"
                 :path "/programs/{?id}/offerings"
                 :query-params {"pageSize" "250"
-                               "consumer" "rio"}}]}]}
+                               "consumer" "rio"}
+                :headers {"accept" "application/json"}}]}]}
