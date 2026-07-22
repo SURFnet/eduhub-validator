@@ -35,7 +35,7 @@ OPTIONS:
   -u, --base-url BASE-URL                                 Base URL of service to validate.
   -o, --observations OBSERVATIONS-PATH  observations.edn  Path to read/write spidering observations.
   -p, --report REPORT-PATH              report.html       Path to write report.
-  -r, --profile PROFILE                 ooapi             Path to profile or name of builtin profile
+  -r, --profile PROFILE                 ooapi             Path to profile
   -S, --no-spider                       false             Disable spidering (re-use observations from OBSERVATIONS-PATH).
   -P, --no-report                       false             Disable report generation (spidering will write observations).
   -h, --add-header 'HEADER: VALUE'      {}                Add header to request. Can be used multiple times.
