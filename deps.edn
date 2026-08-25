@@ -4,16 +4,16 @@
 
 {:paths   ["generated/resources" "profiles" "src"]
  :deps    {nl.surf/apie {:git/url "https://github.com/SURFnet/apie.git"
-                         :git/tag "v1.0.2"
-                         :git/sha "053486c1c7175bbf966fe4729f3abd07574d138b"}}
+                         :git/tag "v1.0.4"
+                         :git/sha "269bd5a03f12ba7867bac4c61152d2ceb1aadcd8"}}
  :aliases {:test      {:extra-deps {lambdaisland/kaocha {:mvn/version "RELEASE"}}
                        :main-opts  ["-m" "kaocha.runner"]}
            :clj-kondo {:replace-deps {clj-kondo/clj-kondo {:mvn/version "RELEASE"}}
                        :main-opts    ["-m" "clj-kondo.main"]}
            :outdated  {:replace-deps {com.github.liquidz/antq {:mvn/version "RELEASE"}}
-                       :main-opts    ["-m" "antq.core"]}
+                       :main-opts    ["-m" "antq.core" "--skip=github-action"]}
            :watson    {:paths        []
-                       :replace-deps {io.github.clj-holmes/clj-watson {:git/tag "v6.0.1"
-                                                                       :git/sha "b5203518d023d50e70a240d59a0770ccbacf3867"}
+                       :replace-deps {io.github.clj-holmes/clj-watson {:git/tag "v6.1.0"
+                                                                       :git/sha "be98e4db74fb8927db4825cc73bbe2606e44e5e3"}
                                       org.owasp/dependency-check-core {:mvn/version "RELEASE"}}
                        :main-opts    ["-m" "clj-watson.cli"]}}}
