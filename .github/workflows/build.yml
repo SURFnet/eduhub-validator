@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v7
-    - uses: jomco/clojure-action@v0
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+    - uses: jomco/clojure-action@fae8cb45f4bf09bb63cdcbe8277f14d9243bf609 # v0
       with: { m2-cache-key: m2-build-checks }
 
     - name: Install packages
@@ -37,7 +37,7 @@ jobs:
         id: version
 
       - name: release
-        uses: actions/create-release@v1
+        uses: actions/create-release@0cb9c9b65d5d1901c1f53e5e66eaf4afd303e70e # v1
         id: create_release
         with:
           draft: false
@@ -69,7 +69,7 @@ jobs:
           - standalone.jar
 
     steps:
-    - uses: jomco/clojure-action@v0
+    - uses: jomco/clojure-action@fae8cb45f4bf09bb63cdcbe8277f14d9243bf609 # v0
       with: { m2-cache-key: m2-build-artifacts }
 
     - name: Artifact name
@@ -80,7 +80,7 @@ jobs:
       run: make ${{ steps.artifact.outputs.filename }}
 
     - name: Upload artifact
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 # v1
       env:
         GITHUB_TOKEN: ${{ github.token }}
       with:
