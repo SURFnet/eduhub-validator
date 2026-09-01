@@ -1,30 +1,41 @@
 {:openapi-spec "ooapi.openapi.json"
  :seeds
  [{:method "get"
-   :path   "/"}
+   :path   "/"
+   :headers {"accept" "application/json"}}
   {:method "get"
-   :path   "/academic-sessions"}
+   :path   "/academic-sessions"
+   :headers {"accept" "application/json"}}
   {:method "get"
-   :path   "/buildings"}
-
+   :path   "/buildings"
+   :headers {"accept" "application/json"}}
   {:method "get"
-   :path   "/courses"}
+   :path   "/courses"
+   :headers {"accept" "application/json"}}
   {:method "get"
-   :path   "/education-specifications"}
+   :path   "/education-specifications"
+   :headers {"accept" "application/json"}}
   {:method "get"
-   :path   "/groups"}
+   :path   "/groups"
+   :headers {"accept" "application/json"}}
   {:method "get"
-   :path   "/news-feeds"}
+   :path   "/news-feeds"
+   :headers {"accept" "application/json"}}
   {:method "get"
-   :path   "/organizations"}
+   :path   "/organizations"
+   :headers {"accept" "application/json"}}
   {:method "get"
-   :path   "/persons"}
+   :path   "/persons"
+   :headers {"accept" "application/json"}}
   {:method "get"
-   :path   "/persons/me"}
+   :path   "/persons/me"
+   :headers {"accept" "application/json"}}
   {:method "get"
-   :path   "/programs"}
+   :path   "/programs"
+   :headers {"accept" "application/json"}}
   {:method "get"
-   :path   "/rooms"}]
+   :path   "/rooms"
+   :headers {"accept" "application/json"}}]
 
  :rules
  [;; page through items list for any kind of entity
@@ -36,133 +47,171 @@
                [:response, :body, "hasNextPage", true]]
    :generates [{:method       "get"
                 :path         ?path
+                :headers {"accept" "application/json"}
                 ;; params must be passed as strings
                 :query-params (assoc ?query-params "pageNumber" (str (inc ?pageNumber)))}]}
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "academicSessionId" ?id]]
    :generates [{:method "get"
-                :path   "/academic-sessions/{?id}"}
+                :path   "/academic-sessions/{?id}"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/academic-sessions/{?id}/offerings"}]}
+                :path   "/academic-sessions/{?id}/offerings"
+                :headers {"accept" "application/json"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "buildingId" ?id]]
    :generates [{:method "get"
-                :path   "/buildings/{?id}"}
+                :path   "/buildings/{?id}"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/buildings/{?id}/rooms"}]}
+                :path   "/buildings/{?id}/rooms"
+                :headers {"accept" "application/json"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "courseId" ?id]]
    :generates [{:method "get"
-                :path   "/courses/{?id}"}
+                :path   "/courses/{?id}"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/courses/{?id}/components"}
+                :path   "/courses/{?id}/components"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/courses/{?id}/offerings"}]}
+                :path   "/courses/{?id}/offerings"
+                :headers {"accept" "application/json"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "educationSpecificationId" ?id]]
    :generates [{:method "get"
-                :path   "/education-specifications/{?id}"}
+                :path   "/education-specifications/{?id}"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/education-specifications/{?id}/courses"}
+                :path   "/education-specifications/{?id}/courses"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/education-specifications/{?id}/education-specifications"}
+                :path   "/education-specifications/{?id}/education-specifications"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/education-specifications/{?id}/programs"}]}
+                :path   "/education-specifications/{?id}/programs"
+                :headers {"accept" "application/json"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "groupId" ?id]]
    :generates [{:method "get"
-                :path   "/groups/{?id}"}
+                :path   "/groups/{?id}"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/groups/{?id}/persons"}]}
+                :path   "/groups/{?id}/persons"
+                :headers {"accept" "application/json"}}]}
 
   ;; from any kind of offering
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "offeringId" ?id]]
    :generates [{:method "get"
-                :path   "/offerings/{?id}"}
+                :path   "/offerings/{?id}"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/offerings/{?id}/associations"}
+                :path   "/offerings/{?id}/associations"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/offerings/{?id}/groups"}]}
+                :path   "/offerings/{?id}/groups"
+                :headers {"accept" "application/json"}}]}
 
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "organizationId" ?id]]
    :generates [{:method "get"
-                :path   "/organizations/{?id}"}
+                :path   "/organizations/{?id}"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/organizations/{?id}/programs"}
+                :path   "/organizations/{?id}/programs"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/organizations/{?id}/courses"}
+                :path   "/organizations/{?id}/courses"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/organizations/{?id}/components"}
+                :path   "/organizations/{?id}/components"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/organizations/{?id}/offerings"}
+                :path   "/organizations/{?id}/offerings"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/organizations/{?id}/groups"}
+                :path   "/organizations/{?id}/groups"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/organizations/{?id}/education-specifications"}]}
+                :path   "/organizations/{?id}/education-specifications"
+                :headers {"accept" "application/json"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "personId" ?id]]
    :generates [{:method "get"
-                :path   "/persons/{?id}"}
+                :path   "/persons/{?id}"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/persons/{?id}/associations"}
+                :path   "/persons/{?id}/associations"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/persons/{?id}/groups"}]}
+                :path   "/persons/{?id}/groups"
+                :headers {"accept" "application/json"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:path "/persons/me"]
                [:response, :body, "personId" ?id]]
    :generates [{:method "get"
-                :path   "/persons/{?id}"}
+                :path   "/persons/{?id}"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/persons/{?id}/associations"}
+                :path   "/persons/{?id}/associations"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/persons/{?id}/groups"}]}
+                :path   "/persons/{?id}/groups"
+                :headers {"accept" "application/json"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "programId" ?id]]
    :generates [{:method "get"
-                :path   "/programs/{?id}"}
+                :path   "/programs/{?id}"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/programs/{?id}/programs"}
+                :path   "/programs/{?id}/programs"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/programs/{?id}/courses"}
+                :path   "/programs/{?id}/courses"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/programs/{?id}/offerings"}]}
+                :path   "/programs/{?id}/offerings"
+                :headers {"accept" "application/json"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "roomId" ?id]]
    :generates [{:method "get"
-                :path   "/rooms/{?id}"}]}
+                :path   "/rooms/{?id}"
+                :headers {"accept" "application/json"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "newsFeedId" ?id]]
    :generates [{:method "get"
-                :path   "/news-feeds/{?id}"}
+                :path   "/news-feeds/{?id}"
+                :headers {"accept" "application/json"}}
                {:method "get"
-                :path   "/news-feeds/{?id}/news-items"}]}
+                :path   "/news-feeds/{?id}/news-items"
+                :headers {"accept" "application/json"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "newsItemId" ?id]]
    :generates [{:method "get"
-                :path   "/news-items/{?id}"}]}]}
+                :path   "/news-items/{?id}"
+                :headers {"accept" "application/json"}}]}]}

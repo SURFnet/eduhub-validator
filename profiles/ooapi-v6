@@ -1,28 +1,39 @@
 {:openapi-spec "ooapi-v6.openapi.json"
  :seeds
  [{:method "get"
-   :path   "/"}
+   :path   "/"
+   :headers {"accept" "application/vnd.oeapi+json;version=6"}}
   {:method "get"
-   :path   "/academic-sessions"}
+   :path   "/academic-sessions"
+   :headers {"accept" "application/vnd.oeapi+json;version=6"}}
   {:method "get"
-   :path   "/buildings"}
+   :path   "/buildings"
+   :headers {"accept" "application/vnd.oeapi+json;version=6"}}
 
   {:method "get"
-   :path   "/courses"}
+   :path   "/courses"
+   :headers {"accept" "application/vnd.oeapi+json;version=6"}}
   {:method "get"
-   :path   "/groups"}
+   :path   "/groups"
+   :headers {"accept" "application/vnd.oeapi+json;version=6"}}
   {:method "get"
-   :path   "/organisations"}
+   :path   "/organisations"
+   :headers {"accept" "application/vnd.oeapi+json;version=6"}}
   {:method "get"
-   :path   "/persons"}
+   :path   "/persons"
+   :headers {"accept" "application/vnd.oeapi+json;version=6"}}
   {:method "get"
-   :path   "/persons/me"}
+   :path   "/persons/me"
+   :headers {"accept" "application/vnd.oeapi+json;version=6"}}
   {:method "get"
-   :path   "/programmes"}
+   :path   "/programmes"
+   :headers {"accept" "application/vnd.oeapi+json;version=6"}}
   {:method "get"
-   :path   "/rooms"}
+   :path   "/rooms"
+   :headers {"accept" "application/vnd.oeapi+json;version=6"}}
   {:method "get"
-   :path   "/learning-outcomes"}]
+   :path   "/learning-outcomes"
+   :headers {"accept" "application/vnd.oeapi+json;version=6"}}]
 
  :rules
  [;; page through items list for any kind of entity
@@ -35,40 +46,52 @@
    :generates [{:method       "get"
                 :path         ?path
                 ;; params must be passed as strings
-                :query-params (assoc ?query-params "pageNumber" (str (inc ?pageNumber)))}]}
+                :query-params (assoc ?query-params "pageNumber" (str (inc ?pageNumber)))
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "academicSessionId" ?id]]
    :generates [{:method "get"
-                :path   "/academic-sessions/{?id}"}
+                :path   "/academic-sessions/{?id}"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/academic-sessions/{?id}/course-offerings"}
+                :path   "/academic-sessions/{?id}/course-offerings"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/academic-sessions/{?id}/programme-offerings"}
+                :path   "/academic-sessions/{?id}/programme-offerings"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/academic-sessions/{?id}/learning-component-offerings"}
+                :path   "/academic-sessions/{?id}/learning-component-offerings"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/academic-sessions/{?id}/test-component-offerings"}]}
+                :path   "/academic-sessions/{?id}/test-component-offerings"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "buildingId" ?id]]
    :generates [{:method "get"
-                :path   "/buildings/{?id}"}
+                :path   "/buildings/{?id}"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/buildings/{?id}/rooms"}]}
+                :path   "/buildings/{?id}/rooms"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "courseId" ?id]]
    :generates [{:method "get"
-                :path   "/courses/{?id}"}
+                :path   "/courses/{?id}"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/courses/{?id}/learning-components"}
+                :path   "/courses/{?id}/learning-components"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/courses/{?id}/test-components"}
+                :path   "/courses/{?id}/test-components"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/courses/{?id}/course-offerings"}]}
+                :path   "/courses/{?id}/course-offerings"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
@@ -76,17 +99,21 @@
    :generates [{:method "get"
                 :path   "/groups/{?id}"}
                {:method "get"
-                :path   "/groups/{?id}/memberships"}]}
+                :path   "/groups/{?id}/memberships"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "courseOfferingId" ?id]]
    :generates [{:method "get"
-                :path   "/course-offerings/{?id}"}
+                :path   "/course-offerings/{?id}"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/course-offerings/{?id}/course-offering-associations"}
+                :path   "/course-offerings/{?id}/course-offering-associations"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/course-offerings/{?id}/groups"}]}
+                :path   "/course-offerings/{?id}/groups"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
   
   {:match     [[:request, :method, "get"]
                [:response :status 200]
@@ -94,85 +121,113 @@
    :generates [{:method "get"
                 :path   "/programme-offerings/{?id}"}
                {:method "get"
-                :path   "/programme-offerings/{?id}/programme-offering-associations"}
+                :path   "/programme-offerings/{?id}/programme-offering-associations"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/programme-offerings/{?id}/groups"}]}
+                :path   "/programme-offerings/{?id}/groups"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
 
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "organisationId" ?id]]
    :generates [{:method "get"
-                :path   "/organisations/{?id}"}
+                :path   "/organisations/{?id}"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/organisations/{?id}/programmes"}
+                :path   "/organisations/{?id}/programmes"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/organisations/{?id}/courses"}
+                :path   "/organisations/{?id}/courses"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/organisations/{?id}/learning-components"}
+                :path   "/organisations/{?id}/learning-components"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/organisations/{?id}/learning-component-offerings"}
+                :path   "/organisations/{?id}/learning-component-offerings"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/organisations/{?id}/test-components"}
+                :path   "/organisations/{?id}/test-components"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/organisations/{?id}/test-component-offerings"}
+                :path   "/organisations/{?id}/test-component-offerings"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/organisations/{?id}/course-offerings"}
+                :path   "/organisations/{?id}/course-offerings"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/organisations/{?id}/programme-offerings"}
+                :path   "/organisations/{?id}/programme-offerings"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/organisations/{?id}/groups"}]}
+                :path   "/organisations/{?id}/groups"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "personId" ?id]]
    :generates [{:method "get"
-                :path   "/persons/{?id}"}
+                :path   "/persons/{?id}"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/persons/{?id}/course-offering-associations"} 
+                :path   "/persons/{?id}/course-offering-associations"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/persons/{?id}/programme-offering-associations"}
+                :path   "/persons/{?id}/programme-offering-associations"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/persons/{?id}/learning-component-offering-associations"}
+                :path   "/persons/{?id}/learning-component-offering-associations"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/persons/{?id}/test-component-offering-associations"}]}
+                :path   "/persons/{?id}/test-component-offering-associations"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:path "/persons/me"]
                [:response, :body, "personId" ?id]]
    :generates [{:method "get"
-                :path   "/persons/{?id}"}
+                :path   "/persons/{?id}"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/persons/{?id}/course-offering-associations"}
+                :path   "/persons/{?id}/course-offering-associations"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/persons/{?id}/programme-offering-associations"}
+                :path   "/persons/{?id}/programme-offering-associations"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/persons/{?id}/learning-component-offering-associations"}
+                :path   "/persons/{?id}/learning-component-offering-associations"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/persons/{?id}/test-component-offering-associations"}]}
+                :path   "/persons/{?id}/test-component-offering-associations"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "programmeId" ?id]]
    :generates [{:method "get"
-                :path   "/programmes/{?id}"}
+                :path   "/programmes/{?id}"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/programmes/{?id}/programmes"}
+                :path   "/programmes/{?id}/programmes"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/programmes/{?id}/courses"}
+                :path   "/programmes/{?id}/courses"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}
                {:method "get"
-                :path   "/programmes/{?id}/programme-offerings"}]}
+                :path   "/programmes/{?id}/programme-offerings"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "roomId" ?id]]
    :generates [{:method "get"
-                :path   "/rooms/{?id}"}]}
+                :path   "/rooms/{?id}"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
 
   {:match     [[:request, :method, "get"]
                [:response :status 200]
                [:response, :body, "items", ?i "learningOutcomeId" ?id]]
    :generates [{:method "get"
-                :path   "/learning-outcomes/{?id}"}]}
+                :path   "/learning-outcomes/{?id}"
+                :headers {"accept" "application/vnd.oeapi+json;version=6"}}]}
 ]}

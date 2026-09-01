@@ -35,7 +35,7 @@ OPTIONS:
   -u, --base-url BASE-URL                                 Base URL of service to validate.
   -o, --observations OBSERVATIONS-PATH  observations.edn  Path to read/write spidering observations.
   -p, --report REPORT-PATH              report.html       Path to write report.
-  -r, --profile PROFILE                 ooapi             Path to profile or name of builtin profile
+  -r, --profile PROFILE                 ooapi             Path to profile
   -S, --no-spider                       false             Disable spidering (re-use observations from OBSERVATIONS-PATH).
   -P, --no-report                       false             Disable report generation (spidering will write observations).
   -h, --add-header 'HEADER: VALUE'      {}                Add header to request. Can be used multiple times.
@@ -110,9 +110,11 @@ A few SURFeduhub profiles are available in the [profiles](./profiles)
 directory and are built into the binary releases:
 
   - `ooapi` -- the full OOAPI v5 specification
+  - `ooapi-v6` -- the full OOAPI v6 specification
   - `rio` -- the RIO profile of OOAPI v5.
+  - `rio-v6` -- the RIO profile of OOAPI v6
   - `eduxchange` -- the eduxchange profile of OOAPI v5.
-
+  
 # Extending the validator
 
 ## Common validator source
