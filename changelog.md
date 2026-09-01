@@ -6,6 +6,10 @@ SPDX-License-Identifier: EPL-2.0 WITH Classpath-exception-2.0
 
 # Changelog
 
+## 1.1.1
+- ooapi-v6 profile and spec fixes
+- update apie version
+
 ## 1.1.0
 - Add rio-v6 and ooapi-v6 profiles
 
